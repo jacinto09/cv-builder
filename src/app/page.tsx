@@ -9,7 +9,7 @@ export default function Home() {
         university.
       </p>
       <a
-        href="/cv"
+        href="/resumes"
         className="rounded-md bg-blue-500 px-4 py-2 text-white hover:bg-blue-600"
       >
         Create your CV
