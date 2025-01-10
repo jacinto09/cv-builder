@@ -11,29 +11,29 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-function PersonalInfoForm() {
+import { EditorFormProps } from "@/lib/types";
+function PersonalInfoForm({ resumeData, setResumeData }: EditorFormProps) {
   const form = useForm<PersonalInfoValues>({
     resolver: zodResolver(personalInfoSchema),
     defaultValues: {
-      firstName: "",
-      lastName: "",
-      email: "",
-      phone: "",
-      city: "",
-      country: "",
-      jobTitle: "",
-      photo: undefined,
+      firstName: resumeData.firstName || "",
+      lastName: resumeData.lastName || "",
+      email: resumeData.email || "",
+      phone: resumeData.phone || "",
+      city: resumeData.city || "",
+      country: resumeData.country || "",
+      jobTitle: resumeData.jobTitle || "",
     },
   });
 
   useEffect(() => {
-    const { unsubscribe } = form.watch(async () => {
+    const { unsubscribe } = form.watch(async (values) => {
       const isValid = await form.trigger();
       if (!isValid) return;
-      //Update resume data
+      setResumeData({ ...resumeData, ...values }); //Update resume data
     });
     return unsubscribe;
-  }, [form]);
+  }, [form, resumeData, setResumeData]);
 
   return (
     <div className="mx-auto max-w-xl space-y-6">

@@ -31,7 +31,7 @@ function Breadcrumbs({ currentStep, setCurrentStep }: BreadcrumbsProps) {
                   </BreadcrumbLink>
                 )}
               </BreadcrumbItem>
-              <BreadcrumbSeparator />
+              <BreadcrumbSeparator className="last:hidden" />
             </React.Fragment>
           ))}
         </BreadcrumbList>
