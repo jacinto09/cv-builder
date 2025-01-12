@@ -5,6 +5,7 @@ import { useSearchParams } from "next/navigation";
 import { steps } from "./steps";
 import Breadcrumbs from "./Breadcrumbs";
 import { ResumeValues } from "@/lib/validation";
+import ResumePreviewerSection from "./ResumePreviewerSection";
 
 function ResumeEditor() {
   const searchParams = useSearchParams();
@@ -43,9 +44,10 @@ function ResumeEditor() {
             )}
           </div>
           <div className="grow md:border-r" />
-          <div className="hidden w-1/2 md:flex">
-            <pre>{JSON.stringify(resumeData, null, 2)}</pre>
-          </div>
+          <ResumePreviewerSection
+            resumeData={resumeData}
+            setResumeData={setResumeData}
+          />
         </div>
       </main>
       <Footer currentStep={currentStep} setCurrentStep={setStep} />
