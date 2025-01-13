@@ -6,14 +6,21 @@ import { steps } from "./steps";
 import Breadcrumbs from "./Breadcrumbs";
 import { ResumeValues } from "@/lib/validation";
 import ResumePreviewerSection from "./ResumePreviewerSection";
-import { cn } from "@/lib/utils";
+import { cn, mapToResumeValues } from "@/lib/utils";
 import useAutoSaveResume from "./useAutoSaveResume";
 import useUnloadWarning from "@/hooks/useUnloadWarning";
+import { ResumeServerData } from "@/lib/types";
 
-function ResumeEditor() {
+interface ResumeEditorProps {
+  resumeToEdit: ResumeServerData | null;
+}
+
+function ResumeEditor({ resumeToEdit }: ResumeEditorProps) {
   const searchParams = useSearchParams();
 
-  const [resumeData, setResumeData] = useState<ResumeValues>({});
+  const [resumeData, setResumeData] = useState<ResumeValues>(
+    resumeToEdit ? mapToResumeValues(resumeToEdit) : {},
+  );
   const [showResumePreview, setShowResumePreview] = useState(false);
 
   const { isSaving, hasUnsavedChanges } = useAutoSaveResume(resumeData);

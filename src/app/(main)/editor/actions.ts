@@ -45,7 +45,7 @@ export async function saveResume(values: ResumeValues) {
       data: {
         ...resumeValues,
         photoUrl: newPhotoUrl,
-        workExpreriences: {
+        workExperiences: {
           deleteMany: {},
           create: workExperiences?.map((workExperience) => ({
             ...workExperience,
@@ -78,7 +78,7 @@ export async function saveResume(values: ResumeValues) {
         ...resumeValues,
         userId,
         photoUrl: newPhotoUrl,
-        workExpreriences: {
+        workExperiences: {
           create: workExperiences?.map((workExperience) => ({
             ...workExperience,
             startDate: workExperience.startDate
