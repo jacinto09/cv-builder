@@ -1,6 +1,7 @@
 import {
   Form,
   FormControl,
+  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -49,12 +50,16 @@ function SummaryForm({ resumeData, setResumeData }: EditorFormProps) {
               <FormItem>
                 <FormLabel className="sr-only">Professional Summary</FormLabel>
                 <FormControl>
+                  {/* TODO: Fix the summary input to the text */}
                   <Textarea
                     {...field}
                     placeholder="Engaging text about yourself"
                   />
                 </FormControl>
                 <FormMessage />
+                <FormDescription>
+                  Write your summary or generate it by AI
+                </FormDescription>
                 <GenerateSummaryButton
                   resumeData={resumeData}
                   onSummaryGenerated={(summary) =>
