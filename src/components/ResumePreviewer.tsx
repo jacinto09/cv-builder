@@ -9,9 +9,14 @@ import { BorderStyles } from "@/app/(main)/editor/BorderStyleButton";
 interface ResumePreviewerProps {
   resumeData: ResumeValues;
   className?: string;
+  contentRef?: React.RefObject<HTMLDivElement>;
 }
 
-function ResumePreviewer({ resumeData, className }: ResumePreviewerProps) {
+function ResumePreviewer({
+  resumeData,
+  className,
+  contentRef,
+}: ResumePreviewerProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const { width } = useDimensions(containerRef);
   return (
@@ -28,6 +33,8 @@ function ResumePreviewer({ resumeData, className }: ResumePreviewerProps) {
           zoom: (1 / 794) * width,
           //794 are the pixels for 210 mm for A4 format
         }}
+        ref={contentRef}
+        id="resumePreviewerConter"
       >
         <PersonalInfoHeader resumeData={resumeData} />
         <SummarySection resumeData={resumeData} />
