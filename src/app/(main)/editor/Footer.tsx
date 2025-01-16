@@ -40,7 +40,6 @@ function Footer({
           </Button>
           <Button
             onClick={nextStep ? () => setCurrentStep(nextStep.key) : undefined}
-            disabled={!nextStep}
           >
             Next Step
           </Button>
@@ -55,9 +54,11 @@ function Footer({
           {showResumePreview ? <PenLineIcon /> : <FileUserIcon />}
         </Button>
         <div className="flex items-center gap-3">
-          <Button variant="secondary" asChild>
-            <Link href="/resumes">Close</Link>
-          </Button>
+          {!nextStep && (
+            <Button asChild variant="premium">
+              <Link href="/resumes">Go to your resumes</Link>
+            </Button>
+          )}
           <p
             className={cn(
               "text-muted-foreground opacity-0",

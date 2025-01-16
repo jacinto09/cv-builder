@@ -57,10 +57,7 @@ function ResumeItem({ resume }: ResumeItemProps) {
               {wasUpdated ? "Updated" : "Created"} on{""}
               {formatDate(resume.updatedAt, "MMM d, yyyy")}
             </p>
-            <Link
-              href={`/editor?resumeId=${resume.id}`}
-              className="relative inline-block w-full"
-            >
+            <div className="relative inline-block w-full">
               <ResumePreviewer
                 contentRef={contentRef}
                 resumeData={mapToResumeValues(resume)}
@@ -68,7 +65,7 @@ function ResumeItem({ resume }: ResumeItemProps) {
               />
               <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-white to-transparent" />
               /
-            </Link>
+            </div>
           </Link>
         </div>
       </div>
@@ -109,14 +106,17 @@ function MoreMenu({ resumeId, onPrintClick }: MoreMenuProps) {
           </DropdownMenuItem>
 
           <DropdownMenuItem
-            className="group flex items-center gap-2"
+            className="group flex flex-col items-start transition-all"
             onClick={onPrintClick}
           >
             {/* TODO: ADD INSTRUCTIONS TO DOWNLOAD AS A PDF */}
-            <Printer className="size-4" />
-            Print
-            <p className="hidden text-sm group-hover:block">
-              You can download the resume as a PDF file changing the destiny
+            <div className="flex items-center gap-2">
+              <Printer className="size-4" />
+              Print
+            </div>
+            <p className="hidden max-w-[100px] text-pretty text-sm group-hover:block">
+              You can download the resume as a PDF file changing the destiny in
+              the print menu.
             </p>
           </DropdownMenuItem>
         </DropdownMenuContent>

@@ -34,11 +34,12 @@ function SummaryForm({ resumeData, setResumeData }: EditorFormProps) {
 
   return (
     <div className="mx-auto max-w-xl space-y-6">
-      <div className="space-y-1.5 text-center">
+      <div className="space-y-1.5 text-left">
         <h2 className="text-2xl font-semibold">Sumary</h2>
         <p className="text-sm text-muted-foreground">
           Write a short introduction for your resume or let the Ai generate one
-          from your data.
+          from your data. You can go to your resumes to{" "}
+          <span className="font-extrabold">save or print it.</span>
         </p>
       </div>
       <Form {...form}>
