@@ -20,6 +20,16 @@ export async function deleteResume(id: string) {
   if (!resume) {
     throw new Error("Resume not found");
   }
+  await prisma.workExperience.deleteMany({
+    where: {
+      resumeId: id,
+    },
+  });
+  await prisma.education.deleteMany({
+    where: {
+      resumeId: id,
+    },
+  });
 
   if (resume.photoUrl) {
     await del(resume.photoUrl);

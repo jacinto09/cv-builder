@@ -8,11 +8,14 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: {
-    template: "CV Builder",
-    absolute: "CV Builder",
+    template: "CV AI Builder",
+    absolute: "CV AI Builder",
   },
   description:
     "Create your CV in minutes with the best template from Harvard university and the power of AI to help you get the job of your dreams.",
+  icons: {
+    icon: "/assets/favicon.ico",
+  },
 };
 
 export default function RootLayout({

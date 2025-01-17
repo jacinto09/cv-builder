@@ -39,7 +39,8 @@ function GenerateWorkExperienceButton({
   return (
     <>
       <Button
-        variant="outline"
+        variant="premium"
+        className="animate-pulse transition-all hover:animate-none"
         type="button"
         onClick={() => setShowInputDialog(true)}
       >

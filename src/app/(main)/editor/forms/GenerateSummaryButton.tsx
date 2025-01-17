@@ -34,7 +34,8 @@ function GenerateSummaryButton({
   }
   return (
     <LoadingButton
-      variant="outline"
+      variant="premium"
+      className="animate-pulse transition-all hover:animate-none"
       type="button"
       onClick={handleClick}
       loading={loading}

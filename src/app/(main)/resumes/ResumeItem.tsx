@@ -147,6 +147,8 @@ function DeleteConfirmationDialog({
   async function handleDelete() {
     startTransition(async () => {
       try {
+        console.log("RESUMEID----------------", resumeId);
+
         await deleteResume(resumeId);
         onOpenChange(false);
       } catch (error) {

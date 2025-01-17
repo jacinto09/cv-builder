@@ -12,7 +12,7 @@ function Navbar() {
     <header className="shadow-sm">
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 p-3">
         <Link href="/resumes" className="flex items-center gap-2">
-          <span className="text-xl font-bold tracking-tight">
+          <span className="bg-gradient-to-r from-green-600 to-green-400 bg-clip-text align-middle text-xl font-bold tracking-tight text-transparent">
             Resume Builder
           </span>
         </Link>
