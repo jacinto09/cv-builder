@@ -1,12 +1,12 @@
-import { Button } from "@/components/ui/button";
 import prisma from "@/lib/prisma";
 import { resumeDataInclude } from "@/lib/types";
 import { auth } from "@clerk/nextjs/server";
-import { PlusSquare } from "lucide-react";
 import { Metadata } from "next";
-import Link from "next/link";
 import React from "react";
 import ResumeItem from "./ResumeItem";
+import CreateResumeButton from "./CreateResumeButton";
+import { getUserSubscriptionLevel } from "@/lib/subscriptions";
+import { canCreateResume } from "@/lib/permissions";
 export const metadata: Metadata = {
   title: "Your Resumes",
 };
@@ -14,7 +14,7 @@ async function Page() {
   const { userId } = await auth();
   if (!userId) return null;
 
-  const [resumes, totalCount] = await Promise.all([
+  const [resumes, totalCount, subscriptionLevel] = await Promise.all([
     prisma.resume.findMany({
       where: {
         userId,
@@ -29,18 +29,16 @@ async function Page() {
         userId,
       },
     }),
+    getUserSubscriptionLevel(userId),
   ]);
 
   //TODO: check if user has 3 resumes and if so, show a message to buy premium for more
 
   return (
     <main className="mx-auto w-full max-w-7xl space-y-6 px-3 py-6">
-      <Button asChild className="mx-auto flex w-fit gap-2">
-        <Link href="/editor">
-          <PlusSquare className="size-5" />
-          New Resume
-        </Link>
-      </Button>
+      <CreateResumeButton
+        canCreate={canCreateResume(subscriptionLevel, totalCount)}
+      />
       <div className="space-y-1">
         <h1 className="text-3xl font-bold">
           Your Resumes
