@@ -17,7 +17,11 @@ async function Page() {
           <h1>Your account is: {susbscriptionLevel}</h1>
         </CardHeader>
         <CardContent className="flex items-center justify-center gap-3">
-          {susbscriptionLevel === "free" && <BillingButton />}
+          {susbscriptionLevel === "free" ? (
+            <BillingButton />
+          ) : (
+            <h1>You are already a pro</h1>
+          )}
         </CardContent>
       </Card>
     </main>
