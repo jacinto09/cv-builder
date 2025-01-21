@@ -51,9 +51,9 @@ function SummaryForm({ resumeData, setResumeData }: EditorFormProps) {
               <FormItem>
                 <FormLabel className="sr-only">Professional Summary</FormLabel>
                 <FormControl>
-                  {/* TODO: Fix the summary input to the text */}
                   <Textarea
                     {...field}
+                    className="min-h-[150px] resize-none"
                     placeholder="Engaging text about yourself"
                   />
                 </FormControl>

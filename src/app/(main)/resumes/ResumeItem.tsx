@@ -109,12 +109,11 @@ function MoreMenu({ resumeId, onPrintClick }: MoreMenuProps) {
             className="group flex flex-col items-start transition-all"
             onClick={onPrintClick}
           >
-            {/* TODO: ADD INSTRUCTIONS TO DOWNLOAD AS A PDF */}
             <div className="flex items-center gap-2">
               <Printer className="size-4" />
               Print
             </div>
-            <p className="hidden max-w-[100px] text-pretty text-sm group-hover:block">
+            <p className="block max-w-[100px] text-pretty text-sm group-hover:block sm:hidden">
               You can download the resume as a PDF file changing the destiny in
               the print menu.
             </p>

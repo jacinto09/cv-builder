@@ -17,7 +17,6 @@ function GenerateSummaryButton({
   const { toast } = useToast();
   const [loading, setLoading] = useState(false);
   async function handleClick() {
-    //TODO: Block for more than 3 trys
     try {
       setLoading(true);
       const aiResponse = await generateSummary(resumeData);

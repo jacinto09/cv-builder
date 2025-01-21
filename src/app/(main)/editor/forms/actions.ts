@@ -10,8 +10,6 @@ import {
 } from "@/lib/validation";
 
 export async function generateSummary(input: GenerateSummaryInput) {
-  //TODO: Block for more than 3 trys
-
   const { jopTitle, educations, workExperiences, skills } =
     generateSummarySchema.parse(input);
 

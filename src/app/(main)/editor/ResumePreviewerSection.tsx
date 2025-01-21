@@ -34,7 +34,6 @@ function ResumePreviewerSection({
         />
       </div>
       <div className="flex w-full justify-center overflow-y-auto bg-secondary p-3">
-        {/* TODO Add another page if the resume is too long */}
         <ResumePreviewer
           resumeData={resumeData}
           className="max-w-2xl shadow-md"
