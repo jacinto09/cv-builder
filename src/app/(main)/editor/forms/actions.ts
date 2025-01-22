@@ -46,9 +46,6 @@ export async function generateSummary(input: GenerateSummaryInput) {
     Skills: 
     ${skills}
     `;
-  console.log("system", systemMessage);
-  console.log("user", userMessage);
-
   const completion = await openai.chat.completions.create({
     model: "gpt-3.5-turbo",
     messages: [
@@ -96,8 +93,6 @@ export async function generateWorkExperience(
   if (!aiResponse) {
     throw new Error("Failed to generate AI response");
   }
-
-  console.log("aiReponse", aiResponse);
 
   return {
     position: aiResponse.match(/Job title: (.*)/)?.[1] || "",

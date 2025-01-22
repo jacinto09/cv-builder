@@ -5,7 +5,6 @@ import React from "react";
 import BillingButton from "./BillingButton";
 async function Page() {
   const { userId } = await auth();
-  console.log(userId);
 
   if (!userId) return <h1>You are not logged in</h1>;
   const susbscriptionLevel = await getUserSubscriptionLevel(userId);

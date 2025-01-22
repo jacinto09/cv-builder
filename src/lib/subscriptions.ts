@@ -11,6 +11,7 @@ export const getUserSubscriptionLevel = cache(
         userId,
       },
     });
+
     if (!subscription || subscription.stripeCurrentPeriodEnd < new Date()) {
       return "free";
     }
