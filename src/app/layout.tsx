@@ -13,9 +13,6 @@ export const metadata: Metadata = {
   },
   description:
     "Create your CV in minutes with the best template from Harvard university and the power of AI to help you get the job of your dreams.",
-  icons: {
-    icon: "/assets/favicon.ico",
-  },
 };
 
 export default function RootLayout({
