@@ -3,7 +3,9 @@ import { getUserSubscriptionLevel } from "@/lib/subscriptions";
 import { auth } from "@clerk/nextjs/server";
 import React from "react";
 import BillingButton from "./BillingButton";
+import { Check } from "lucide-react";
 async function Page() {
+  const features = ["AI tools", "Up to 3 resumes"];
   const { userId } = await auth();
 
   if (!userId) return <h1>You are not logged in</h1>;
@@ -17,9 +19,28 @@ async function Page() {
         </CardHeader>
         <CardContent className="flex items-center justify-center gap-3">
           {susbscriptionLevel === "free" ? (
-            <BillingButton />
+            <div className="space-y-6">
+              <p>Get a premium subscription to unlock all features.</p>
+              <div className="flex">
+                <div className="flex w-full flex-col space-y-5">
+                  <div className="bg-gradient-to-r from-green-500 to-green-400 p-[0.3px]" />
+                  <div className="flex w-full items-baseline justify-between space-y-2">
+                    {features.map((feature) => (
+                      <div
+                        key={feature}
+                        className="flex items-center justify-center gap-2"
+                      >
+                        <Check className="size-4 text-green-500" />
+                        {feature}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+              <BillingButton />
+            </div>
           ) : (
-            <h1>You are already a pro</h1>
+            <h1>You are already a pro!</h1>
           )}
         </CardContent>
       </Card>

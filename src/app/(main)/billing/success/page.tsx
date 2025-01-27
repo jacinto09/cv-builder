@@ -10,7 +10,7 @@ function Page() {
         The checkout was successful and your pro account has been activated.
         Enjoy!
       </p>
-      <Button asChild>
+      <Button asChild variant="premium">
         <Link href="/resumes">Go to resumes</Link>
       </Button>
     </main>

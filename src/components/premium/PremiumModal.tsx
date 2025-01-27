@@ -8,7 +8,7 @@ import usePremiumModal from "@/hooks/usePremiumModal";
 import createCheckoutSession from "./action";
 import { useToast } from "@/hooks/use-toast";
 import { env } from "@/env";
-const features = ["AI tools", "Up to 3 resumes", "Design customizations"];
+const features = ["AI tools", "Up to 3 resumes"];
 
 function PremiumModal() {
   const { open, setOpen } = usePremiumModal();
